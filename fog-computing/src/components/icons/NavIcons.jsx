@@ -15,7 +15,8 @@ import {
     Spinner,
     Intent,
     H3,
-    Colors
+    Colors,
+    ButtonGroup
 
 } from '@blueprintjs/core';
 
@@ -23,9 +24,7 @@ const NavIcons = (props) => {
     
     return (
         <div style={{margin: '5px'}}>
-            <Button icon={props.iconname} intent={props.intent} style={styles.buttonStyle}>
-                <b>{props.name}</b>
-            </Button>
+          <Button intent={props.intent} icon={props.iconname} onClick={props.onClick} />
         </div>
     );
 }

@@ -2,8 +2,6 @@
 // import the react library
 import React from 'react';
 
-import classNames from 'classnames';
-
 // import Blueprint.js modules
 import {
 
@@ -20,7 +18,12 @@ import {
     H3,
     Colors,
     Toaster,
-    Position
+    Position,
+    MenuItem,
+    MenuDivider,
+    Menu,
+    Button,
+    Popover
 
 } from '@blueprintjs/core';
 
@@ -28,6 +31,7 @@ import {
 import NavIcons from '../icons/NavIcons';
 import NavButton from '../buttons/NavButton';
 import NavBarHeading from '../navbar/NavBarHeading';
+import UserProfileMenu from '../menu/UserProfileMenu';
 
 // code for FixedNavBar
 
@@ -66,7 +70,7 @@ const FixedNavBar = () => {
 
                     <NavbarDivider  />
 
-                    <NavIcons intent="success" iconname="user" />
+                    <UserProfileMenu />
                     <NavIcons intent="success" iconname="cog" />
                     <NavIcons intent="success" iconname="notifications" />
 
