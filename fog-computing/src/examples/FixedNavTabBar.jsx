@@ -21,9 +21,9 @@ import {
     Tab
 
 } from '@blueprintjs/core';
-import Panel from '../custom/Panel';
+import Panel from './custom/Panel';
 
-import NavTab from '../custom/tabs/NavTab';
+import NavTab from './custom/tabs/NavTab';
 
 const FixedNavTabBar = () => {
 

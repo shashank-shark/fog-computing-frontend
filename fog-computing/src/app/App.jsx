@@ -1,12 +1,21 @@
 import React from 'react';
 
-import FixedNavTabBar from '../examples/FixedNavTabBar';
+import FixedNavBar from '../components/navbar/FixedNavBar';
 
 
-const App = () => {
-  return (
-    <FixedNavTabBar />
-  );
+class App extends React.Component {
+
+
+  componentDidMount() {
+    document.title = 'Fog Computing System';
+  }
+
+  render() {
+    return (
+      <FixedNavBar />
+    );
+  }
+
 }
 
 export default App;
