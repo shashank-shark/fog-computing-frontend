@@ -1,11 +1,11 @@
 import React from 'react';
 
-import FixedNavBar from '../examples/FixedNavBar';
+import FixedNavTabBar from '../examples/FixedNavTabBar';
 
 
 const App = () => {
   return (
-    <FixedNavBar />
+    <FixedNavTabBar />
   );
 }
 
