@@ -46,11 +46,11 @@ const FixedNavBar = () => {
     return (
 
         <div>
-            <Navbar className={Classes.DARK} 
+            <Navbar className={Classes.NAVBAR}
             fixedToTop
             >
                 <NavbarGroup align={Alignment.LEFT}>
-                    <NavBarHeading headingName="Fog Computing System" />
+                    <NavBarHeading headingName="Fog Computing System" className={Classes.NAVBAR_HEADING} />
                 </NavbarGroup>
 
                 <NavbarGroup align={Alignment.RIGHT}>
