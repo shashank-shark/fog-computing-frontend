@@ -33,6 +33,8 @@ import NavButton from '../buttons/NavButton';
 import NavBarHeading from '../navbar/NavBarHeading';
 import UserProfileMenu from '../menu/UserProfileMenu';
 
+import { Link } from 'react-router-dom';
+
 // code for FixedNavBar
 
 
@@ -46,27 +48,38 @@ const FixedNavBar = () => {
     return (
 
         <div>
+
             <Navbar className={Classes.NAVBAR}
             fixedToTop
             >
-                <NavbarGroup align={Alignment.LEFT}>
-                    <NavBarHeading headingName="Fog Computing System" className={Classes.NAVBAR_HEADING} />
-                </NavbarGroup>
+                <Link to='/HomeScreen' style={{ textDecoration: 'none', color: 'black'}}>
+                    <NavbarGroup align={Alignment.LEFT}>
+                        <NavBarHeading headingName="Fog Computing System" className={Classes.NAVBAR_HEADING} />
+                    </NavbarGroup>
+                </Link>
 
                 <NavbarGroup align={Alignment.RIGHT}>
 
-                    <NavButton intent="primary" name="Home" 
-                    iconname="home" 
-                    onClick={handleHomePageNavigation} 
-                    />
-                    <NavButton intent="primary" name="Services" 
-                    iconname="cloud" 
-                    onClick={handleServicesPageNavigation} 
-                    />
-                    <NavButton intent="primary" name="Analytics" 
-                    iconname="predictive-analysis" 
-                    onClick={handleAnalyticsPageNavigation} 
-                    />
+                    <Link to='/HomeScreen'>
+                        <NavButton intent="primary" name="Home" 
+                        iconname="home" 
+                        onClick={handleHomePageNavigation} 
+                        />
+                    </Link>
+
+                    <Link to='AnalyticsScreen'>
+                        <NavButton intent="primary" name="Services" 
+                        iconname="cloud" 
+                        onClick={handleServicesPageNavigation} 
+                        />
+                    </Link>
+
+                    <Link to='/ServicesScreen'>
+                        <NavButton intent="primary" name="Analytics" 
+                        iconname="predictive-analysis" 
+                        onClick={handleAnalyticsPageNavigation} 
+                        />
+                    </Link>
 
                     <NavbarDivider  />
 
