@@ -33,9 +33,11 @@ import NavIcons from '../icons/NavIcons';
 
 const UserProfileMenu = (props) => {
 
+    console.log('UserProfileMenu props ========>' + props);
+
     return (
 
-        <Popover content={<MenuItems />} position={Position.BOTTOM_LEFT}>
+        <Popover content={<MenuItems auth={props.auth} />} position={Position.BOTTOM_LEFT}>
             <NavIcons intent="success" iconname={props.iconname} />
         </Popover>
 
@@ -43,7 +45,7 @@ const UserProfileMenu = (props) => {
 
 };
 
-const MenuItems = () => {
+const MenuItems = (props) => {
     return (
         <Menu>
             <MenuItem text="My Profile" icon="user" />
@@ -53,7 +55,7 @@ const MenuItems = () => {
             <MenuItem text="Projects" icon="th" />
             <MenuItem text="Organization" icon="flow-review-branch" />
             <MenuDivider />
-            <MenuItem text="Signout" icon="log-out" />
+            <MenuItem text="Signout" icon="log-out" onClick={() => props.auth.logout} />
         </Menu>
     );
 };

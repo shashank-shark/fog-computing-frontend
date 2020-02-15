@@ -1,0 +1,50 @@
+/* eslint-disable no-unused-vars */
+import React, { Component } from 'react';
+
+import history from './history';
+
+import * as ACTIONS from '../actions/actions';
+
+import { connect } from 'react-redux';
+
+
+class AuthCheck extends Component {
+
+    componentDidMount() {
+    
+        console.log(this.props.auth);
+
+        if (this.props.auth.isAuthenticated()) {
+            this.props.login_success();
+            history.replace("/callback");
+        } else {
+            this.props.login_failure();
+            history.replace("/");
+        }
+
+    }
+
+    render () {
+        return (
+            <div>
+                AuthCheck
+            </div>
+        );
+    }
+}
+
+function mapStateToProps (state) {
+    return {
+
+    }
+}
+
+function mapDispatchToProps (dispatch) {
+    return {
+        login_success: () => dispatch(ACTIONS.login_success()),
+        login_failure: () => dispatch(ACTIONS.login_failure())
+    }
+}
+
+
+export default connect (mapStateToProps, mapDispatchToProps)(AuthCheck);

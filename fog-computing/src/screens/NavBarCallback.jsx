@@ -28,20 +28,15 @@ import {
 } from '@blueprintjs/core';
 
 // import customized nav button
-import NavIcons from '../icons/NavIcons';
-import NavButton from '../buttons/NavButton';
-import NavBarHeading from '../navbar/NavBarHeading';
+import NavIcons from '../components/icons/NavIcons';
+import NavButton from '../components/buttons/NavButton';
+import NavBarHeading from '../components/navbar/NavBarHeading';
 
-import UserProfileMenu from '../menu/UserProfileMenu';
-import UserSettingsMenu from '../menu/UserSettingsMenu';
-import NotificationAndMessagesMenu from '../menu/NotificationAndMessagesMenu';
-
-import Auth from '../../utils/auth';
+import UserProfileMenu from '../components/menu/UserProfileMenu';
+import UserSettingsMenu from '../components/menu/UserSettingsMenu';
+import NotificationAndMessagesMenu from '../components/menu/NotificationAndMessagesMenu';
 
 import { Link } from 'react-router-dom';
-
-// auth imports
-const auth = new Auth()
 
 
 export const AppToaster = Toaster.create({
@@ -49,8 +44,9 @@ export const AppToaster = Toaster.create({
     position: Position.TOP
 })
 
-const FixedNavBar = (props) => {
+const NavBarCallback = (props) => {
 
+    console.log('NavBarCallback props ========>' + props.auth);
 
     return (
 
@@ -86,10 +82,9 @@ const FixedNavBar = (props) => {
 
                     <NavbarDivider  />
 
-                    <NavButton intent="warning" name="Login" iconname="log-in" onClick={auth.login} />
-                    {/* <UserProfileMenu iconname="user" />
+                    <UserProfileMenu iconname="user" auth={props} />
                     <UserSettingsMenu iconname="cog" />
-                    <NotificationAndMessagesMenu iconname="notifications" /> */}
+                    <NotificationAndMessagesMenu iconname="notifications" />
                 </NavbarGroup>
                 
             </Navbar>
@@ -121,4 +116,4 @@ const handleAnalyticsPageNavigation = () => {
 }
 
 
-export default FixedNavBar;
+export default NavBarCallback;
