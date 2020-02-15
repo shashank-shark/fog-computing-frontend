@@ -25,6 +25,7 @@ class Routes extends Component {
                     <div>
                         <FixedNavBar />
                         <Switch>
+                            <Route exact path="/" component={HomeScreen} />
                             <Route exact path="/HomeScreen" component={HomeScreen} />
                             <Route path="/AnalyticsScreen" component={AnalyticsScreen} />
                             <Route path="/ServicesScreen" component={ServicesScreen} />

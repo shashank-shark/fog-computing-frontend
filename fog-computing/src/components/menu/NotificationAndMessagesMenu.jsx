@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 // import the react library
 import React from 'react';
@@ -30,15 +31,12 @@ import {
 
 import NavIcons from '../icons/NavIcons';
 
-
-const UserProfileMenu = (props) => {
-
+const NotificationAndMessages = (props) => {
+    
     return (
-
         <Popover content={<MenuItems />} position={Position.BOTTOM_LEFT}>
             <NavIcons intent="success" iconname={props.iconname} />
         </Popover>
-
     );
 
 };
@@ -56,6 +54,6 @@ const MenuItems = () => {
             <MenuItem text="Signout" icon="log-out" />
         </Menu>
     );
-};
+}
 
-export default UserProfileMenu;
+export default NotificationAndMessages;

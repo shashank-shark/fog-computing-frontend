@@ -31,7 +31,10 @@ import {
 import NavIcons from '../icons/NavIcons';
 import NavButton from '../buttons/NavButton';
 import NavBarHeading from '../navbar/NavBarHeading';
+
 import UserProfileMenu from '../menu/UserProfileMenu';
+import UserSettingsMenu from '../menu/UserSettingsMenu';
+import NotificationAndMessagesMenu from '../menu/NotificationAndMessagesMenu';
 
 import { Link } from 'react-router-dom';
 
@@ -79,10 +82,9 @@ const FixedNavBar = () => {
 
                     <NavbarDivider  />
 
-                    <UserProfileMenu />
-                    <NavIcons intent="success" iconname="cog" />
-                    <NavIcons intent="success" iconname="notifications" />
-
+                    <UserProfileMenu iconname="user" />
+                    <UserSettingsMenu iconname="cog" />
+                    <NotificationAndMessagesMenu iconname="notifications" />
                 </NavbarGroup>
                 
             </Navbar>

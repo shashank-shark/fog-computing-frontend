@@ -24,7 +24,7 @@ const NavIcons = (props) => {
     
     return (
         <div style={{margin: '5px'}}>
-          <Button intent={props.intent} icon={props.iconname} onClick={props.onClick} />
+          <Button style={{ backgroundColor: 'white'}} icon={props.iconname} onClick={props.onClick} />
         </div>
     );
 }
