@@ -10,7 +10,7 @@ import ServicesScreen from '../screens/ServicesScreen';
 import FixedNavBar from '../components/navbar/FixedNavBar';
 
 // react-router imports
-import { Router, Route } from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 
 // import history
 import history from '../utils/history';
@@ -22,12 +22,13 @@ class Routes extends Component {
         return (
             <div>
                 <Router history={history}>
-                    {/* Router component can home only one component */}
                     <div>
                         <FixedNavBar />
-                        <Route path="/" component={HomeScreen} />
-                        <Route path="/AnalyticsScreen" component={AnalyticsScreen} />
-                        <Route path="/ServicesScreen" component={ServicesScreen} />
+                        <Switch>
+                            <Route exact path="/HomeScreen" component={HomeScreen} />
+                            <Route path="/AnalyticsScreen" component={AnalyticsScreen} />
+                            <Route path="/ServicesScreen" component={ServicesScreen} />
+                        </Switch>
                     </div>
                 </Router>
             </div>

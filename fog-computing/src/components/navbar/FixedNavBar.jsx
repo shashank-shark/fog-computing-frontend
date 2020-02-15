@@ -50,7 +50,6 @@ const FixedNavBar = () => {
         <div>
 
             <Navbar className={Classes.NAVBAR}
-            fixedToTop
             >
                 <Link to='/HomeScreen' style={{ textDecoration: 'none', color: 'black'}}>
                     <NavbarGroup align={Alignment.LEFT}>
@@ -63,21 +62,18 @@ const FixedNavBar = () => {
                     <Link to='/HomeScreen'>
                         <NavButton intent="primary" name="Home" 
                         iconname="home" 
-                        onClick={handleHomePageNavigation} 
-                        />
-                    </Link>
-
-                    <Link to='AnalyticsScreen'>
-                        <NavButton intent="primary" name="Services" 
-                        iconname="cloud" 
-                        onClick={handleServicesPageNavigation} 
                         />
                     </Link>
 
                     <Link to='/ServicesScreen'>
+                        <NavButton intent="primary" name="Services" 
+                        iconname="cloud"
+                        />
+                    </Link>
+
+                    <Link to='/AnalyticsScreen'>
                         <NavButton intent="primary" name="Analytics" 
-                        iconname="predictive-analysis" 
-                        onClick={handleAnalyticsPageNavigation} 
+                        iconname="predictive-analysis"
                         />
                     </Link>
 

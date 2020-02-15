@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 
-import FixedNavBar from '../components/navbar/FixedNavBar';
-
 // import Routes
 import Routes from '../routes/routes';
 
