@@ -44,14 +44,10 @@ const UserSettingsMenu = (props) => {
 const MenuItems = () => {
     return (
         <Menu>
-            <MenuItem text="My Profile" icon="user" />
-            <MenuItem text="Storage" icon="database" />
-            <MenuItem text="Subscribers" icon="people" />
+            <MenuItem text="Network Settings" icon="globe-network" />
+            <MenuItem text="Update Settings" icon="automatic-updates" />
             <MenuDivider />
-            <MenuItem text="Projects" icon="th" />
-            <MenuItem text="Organization" icon="flow-review-branch" />
-            <MenuDivider />
-            <MenuItem text="Signout" icon="log-out" />
+            <MenuItem text="Export Settings" icon="send-to" />
         </Menu>
     );
 }

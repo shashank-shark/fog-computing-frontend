@@ -44,14 +44,9 @@ const NotificationAndMessages = (props) => {
 const MenuItems = () => {
     return (
         <Menu>
-            <MenuItem text="My Profile" icon="user" />
-            <MenuItem text="Storage" icon="database" />
-            <MenuItem text="Subscribers" icon="people" />
-            <MenuDivider />
-            <MenuItem text="Projects" icon="th" />
-            <MenuItem text="Organization" icon="flow-review-branch" />
-            <MenuDivider />
-            <MenuItem text="Signout" icon="log-out" />
+            <MenuItem text="Inbox" icon="envelope" />
+            <MenuItem text="Chats" icon="chat" />
+            <MenuItem text="Subscriber Feeds" icon="feed" />
         </Menu>
     );
 }
