@@ -6,14 +6,18 @@ import HomeScreen from '../screens/HomeScreen';
 import AnalyticsScreen from '../screens/AnalyticsScreen';
 import ServicesScreen from '../screens/ServicesScreen';
 
+import UnAuthRedirect from '../screens/auth/UnAuthRedirect';
+import ProtectedRoute from '../screens/auth/ProtectedRoute';
+import Callback from '../screens/auth/Callback';
+
 // import FixedNavBar component
-import FixedNavBar from '../components/navbar/FixedNavBar';
+import FixedNavigationBar from '../components/navbar/FixedNavigationBar';
 
 // import callback
 import NavBarCallback from '../screens/NavBarCallback';
 
 // react-router imports
-import { Router, Route, Switch } from 'react-router';
+import { Router, Route, Switch, Redirect } from 'react-router';
 
 // import history
 import history from '../utils/history';
@@ -30,6 +34,16 @@ const handleAuthentication = (props) => {
     }
 }
 
+const PrivateRoute = ( {component: Component, auth} ) => (
+
+    <Route render={props => auth.isAuthenticated() === true
+    ? <Component auth={auth} {...props} />
+    : <Redirect to={{ pathname: '/redirect' }} />
+    }
+    />
+
+)
+
 class Routes extends Component {
 
     render() {
@@ -38,14 +52,16 @@ class Routes extends Component {
             <div>
                 <Router history={history}>
                     <div>
-                        <FixedNavBar />
+                        <FixedNavigationBar auth={auth} />
                         <Switch>
-                            <Route exact path="/" render={() => <HomeScreen auth={auth} /> } />
-                            <Route exact path="/authcheck" render={(props) => <AuthCheck auth={auth} />} />
-                            <Route exact path="/callback" render={(props) => { handleAuthentication(props); return <NavBarCallback auth={auth} /> } }/>
-                            <Route exact path="/HomeScreen" render={() => <HomeScreen auth={auth} /> } />
-                            <Route exact path="/AnalyticsScreen" render={() => <AnalyticsScreen auth={auth} /> } />
-                            <Route exact path="/ServicesScreen" render={() => <ServicesScreen auth={auth} /> } />
+                            <Route exact path="/" render={() => <HomeScreen /> } />
+                            <Route exact path="/authcheck" render={() => <AuthCheck auth={auth} />} />
+                            <Route exact path="/redirect" component={UnAuthRedirect} />
+                            <Route exact path="/callback" render={(props) => { handleAuthentication(props); return <Callback /> } }/>
+                            <Route exact path="/HomeScreen" render={() => <HomeScreen /> } />
+                            <Route exact path="/AnalyticsScreen" render={() => <AnalyticsScreen /> } />
+                            <Route exact path="/ServicesScreen" render={() => <ServicesScreen /> } />
+                            <Route exact path="/privateroute" auth={auth} component={ProtectedRoute} />
                         </Switch>
                     </div>
                 </Router>

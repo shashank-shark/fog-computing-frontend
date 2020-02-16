@@ -11,12 +11,10 @@ import { connect } from 'react-redux';
 class AuthCheck extends Component {
 
     componentDidMount() {
-    
-        console.log(this.props.auth);
 
         if (this.props.auth.isAuthenticated()) {
             this.props.login_success();
-            history.replace("/callback");
+            history.replace("/");
         } else {
             this.props.login_failure();
             history.replace("/");

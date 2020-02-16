@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 // import the react library
-import React from 'react';
+import React, { Component } from 'react';
 
 // import Blueprint.js modules
 import {
@@ -30,7 +30,7 @@ import {
 // import customized nav button
 import NavIcons from '../icons/NavIcons';
 import NavButton from '../buttons/NavButton';
-import NavBarHeading from '../navbar/NavBarHeading';
+import NavBarHeading from './NavBarHeading';
 
 import UserProfileMenu from '../menu/UserProfileMenu';
 import UserSettingsMenu from '../menu/UserSettingsMenu';
@@ -38,26 +38,27 @@ import NotificationAndMessagesMenu from '../menu/NotificationAndMessagesMenu';
 
 import Auth from '../../utils/auth';
 
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
-
-// auth imports
-const auth = new Auth()
-
 
 export const AppToaster = Toaster.create({
     className: "recipe-toaster",
     position: Position.TOP
 })
 
-const FixedNavBar = (props) => {
+class FixedNavigationBar extends Component {
+    
 
+ render () {
 
+    console.log("wow:" + this.props);
     return (
 
         <div>
 
-            <Navbar className={Classes.NAVBAR}
-            >
+            <Navbar className={Classes.NAVBAR}>
+
                 <Link to='/HomeScreen' style={{ textDecoration: 'none', color: 'black'}}>
                     <NavbarGroup align={Alignment.LEFT}>
                         <NavBarHeading headingName="Fog Computing System" className={Classes.NAVBAR_HEADING} />
@@ -86,16 +87,24 @@ const FixedNavBar = (props) => {
 
                     <NavbarDivider  />
 
-                    <NavButton intent="warning" name="Login" iconname="log-in" onClick={auth.login} />
-                    {/* <UserProfileMenu iconname="user" />
+                    {/* { console.log ("is User Authenticated ? " + props.auth.isAuthenticated) } */}
+
+                    {
+                        !this.props.auth.isUserAuthenticated
+                        ? <button onClick={this.props.auth.login()}>Logout</button>
+                        : <button onClick={this.props.auth.login()}>Login</button>
+
+                    }
+                    <UserProfileMenu iconname="user" />
                     <UserSettingsMenu iconname="cog" />
-                    <NotificationAndMessagesMenu iconname="notifications" /> */}
+                    <NotificationAndMessagesMenu iconname="notifications" />
                 </NavbarGroup>
                 
             </Navbar>
         </div>
-      
     );
+
+    }
 }
 
 
@@ -120,5 +129,12 @@ const handleAnalyticsPageNavigation = () => {
     });
 }
 
+function mapStoreToProps (state) {
 
-export default FixedNavBar;
+    return {
+        isUserAuthenticated: state.authReducer.isUserAuthenticated
+    }
+}
+
+
+export default connect(mapStoreToProps)(FixedNavigationBar);

@@ -36,6 +36,9 @@ import UserProfileMenu from '../components/menu/UserProfileMenu';
 import UserSettingsMenu from '../components/menu/UserSettingsMenu';
 import NotificationAndMessagesMenu from '../components/menu/NotificationAndMessagesMenu';
 
+
+import { connect } from 'react-redux';
+
 import { Link } from 'react-router-dom';
 
 
@@ -80,6 +83,12 @@ const NavBarCallback = (props) => {
                         />
                     </Link>
 
+                    <Link to='/privateroute'>
+                        <NavButton intent="primary" name="PrivateRoute" 
+                        iconname="predictive-analysis"
+                        />
+                    </Link>
+
                     <NavbarDivider  />
 
                     <UserProfileMenu iconname="user" auth={props} />
@@ -113,6 +122,13 @@ const handleAnalyticsPageNavigation = () => {
         message: "Analytics page will be implemented soon",
         intent: Intent.PRIMARY
     });
+}
+
+function mapStateToProps (state) {
+
+    return {
+        isAuthenticated: state.authReducer.isAuthenticated
+    }
 }
 
 

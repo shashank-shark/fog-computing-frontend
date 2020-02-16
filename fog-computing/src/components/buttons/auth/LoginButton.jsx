@@ -19,13 +19,13 @@ import {
 
 } from '@blueprintjs/core';
 
-const NavButton = (props) => {
+const LoginButton = (props) => {
 
     console.log("Inside NavButton" + props);
     
     return (
         <div style={{margin: '5px'}}>
-            <Button icon={props.iconname} intent={props.intent} style={styles.buttonStyle} onClick={() => props.onClick()}>
+            <Button icon={props.iconname} intent={props.intent} style={styles.buttonStyle} onClick={() => { props.onClick.auth.logout() }}>
                 <b>{props.name}</b>
             </Button>
         </div>
@@ -40,5 +40,5 @@ const styles = {
 
 }
 
-export default NavButton;
+export default LoginButton;
 
