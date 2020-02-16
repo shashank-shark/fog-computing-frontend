@@ -52,7 +52,7 @@ class Routes extends Component {
             <div>
                 <Router history={history}>
                     <div>
-                        <FixedNavigationBar auth={auth} />
+                        {/* <FixedNavigationBar auth={auth} /> */}
                         <Switch>
                             <Route exact path="/" render={() => <HomeScreen /> } />
                             <Route exact path="/authcheck" render={() => <AuthCheck auth={auth} />} />
@@ -61,7 +61,7 @@ class Routes extends Component {
                             <Route exact path="/HomeScreen" render={() => <HomeScreen /> } />
                             <Route exact path="/AnalyticsScreen" render={() => <AnalyticsScreen /> } />
                             <Route exact path="/ServicesScreen" render={() => <ServicesScreen /> } />
-                            <Route exact path="/privateroute" auth={auth} component={ProtectedRoute} />
+                            <PrivateRoute path="/privateroute" auth={auth} component={ProtectedRoute} />
                         </Switch>
                     </div>
                 </Router>

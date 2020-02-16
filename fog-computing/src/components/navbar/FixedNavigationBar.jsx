@@ -90,7 +90,7 @@ class FixedNavigationBar extends Component {
                     {/* { console.log ("is User Authenticated ? " + props.auth.isAuthenticated) } */}
 
                     {
-                        !this.props.auth.isUserAuthenticated
+                        !this.props.isUserAuthenticated
                         ? <button onClick={this.props.auth.login()}>Logout</button>
                         : <button onClick={this.props.auth.login()}>Login</button>
 
@@ -135,6 +135,5 @@ function mapStoreToProps (state) {
         isUserAuthenticated: state.authReducer.isUserAuthenticated
     }
 }
-
 
 export default connect(mapStoreToProps)(FixedNavigationBar);
